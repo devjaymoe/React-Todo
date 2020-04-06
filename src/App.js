@@ -1,6 +1,7 @@
 import React from 'react';
 import TodoList from './components/TodoList';
 import TodoForm from './components/TodoForm';
+import './components/Todo.css';
 
 // Data shape
 const list = [
@@ -38,10 +39,16 @@ class App extends React.Component {
   };
 
   toggleTask = taskId => {
-    console.log(taskId)
+    //console.log(taskId)
     this.setState({
       list: this.state.list.map(item => {
-        if(taskId === list.id )
+        if( taskId === item.id ){
+          return {
+            ...item,
+            completed: !item.completed
+          };
+        }
+        return item;
       })
     })
   }
@@ -63,7 +70,10 @@ class App extends React.Component {
           toggleTask={this.toggleTask}
           clearTasks={this.clearTasks}
         />
+        <div>
         <TodoForm addTodo={this.addTodo}/>
+        <button onClick={this.clearTasks}>Clear Completed</button>
+        </div>
       </div>
     );
   }
