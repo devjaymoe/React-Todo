@@ -1,7 +1,7 @@
 import React from 'react';
 import TodoList from './components/TodoList';
 import TodoForm from './components/TodoForm';
-import './components/Todo.css';
+import './components/Todo.scss';
 
 // Data shape
 const list = [
@@ -63,17 +63,25 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
-        <h2>Welcome to your Todo App!</h2>
-        <TodoList 
-          list={this.state.list}
-          toggleTask={this.toggleTask}
-          clearTasks={this.clearTasks}
-        />
-        <div>
-        <TodoForm addTodo={this.addTodo}/>
-        <button onClick={this.clearTasks}>Clear Completed</button>
+      <div className='container'>
+        <div className='todo-list'>
+
+          <div className='header'>
+            <h2>Welcome to your Todo App!</h2>
+            <TodoForm 
+              addTodo={this.addTodo} 
+              clearTasks={this.clearTasks}
+            />
+          </div>
+
+          <TodoList 
+            list={this.state.list}
+            toggleTask={this.toggleTask}
+            clearTasks={this.clearTasks}
+          />
+          
         </div>
+        
       </div>
     );
   }

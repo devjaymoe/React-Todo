@@ -1,0 +1,38 @@
+* {
+    box-sizing: border-box;
+    max-width: 100%;
+    //border: 1px solid red;
+}
+.task.completed {
+    text-decoration: line-through;
+}
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    .header {
+        display:flex; 
+        align-items: baseline;
+        justify-content: space-between;
+    }
+
+    .todo-list {
+        width: 60%;
+
+        .task-container {
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: space-evenly;
+            
+            .task {
+                display:flex;
+                justify-content: center;
+                margin: 1% 2%;
+                width: 25%;
+            }
+        }
+    }
+
+}
